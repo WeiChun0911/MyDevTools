@@ -1,69 +1,135 @@
+Host sample-site
+    HostName 18.140.43.143
+    User admin
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem    
+
 Host outsourcing
     HostName 3.0.51.218
     User admin
-    IdentityFile ~/.ssh/outsourcing-key.pem
+    IdentityFile ~/.ssh/key/outsourcing-key.pem
 
 Host sftp
     HostName 52.220.226.115
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host metabase
     HostName 18.136.210.127
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host stage
     HostName 13.228.169.168
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host dev-web-1
     HostName 18.136.228.7
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host dev-worker-1
     HostName 13.229.176.165
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host web-1
     HostName 54.151.142.142
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host web-2
     HostName 54.179.126.195
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host inspector
     HostName 54.179.230.187
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host worker-1
     HostName 52.221.121.238
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host worker-2
     HostName 18.136.38.8
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host worker-3
     HostName 13.212.22.38
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
 Host fuckedupsummer-1
     HostName 18.139.71.163
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
+
+Host workagoolic
+    HostName 54.151.215.123
+    User admin
+    IdentityFIle ~/.ssh/key/kkfarm-2017.pem
 
 Host official-site
     HostName 13.212.248.97
     User admin
-    IdentityFile ~/.ssh/kkfarm-2017.pem
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
+
+Host funkiemonkie
+    HostName 18.139.167.3
+    User admin
+    IdentityFile ~/.ssh/key/kkfarm-2017.pem
+
+Host kkbox-rdc-bastion-host
+  HostName i-02748057251607112
+  User ubuntu
+  Identityfile	~/.ssh/key/id_rsa_kfa
+  ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --region us-west-2"
+
+Host kfa-bastion-host
+  HostName i-05b7058f53e1e8ec5
+  User ubuntu
+  Identityfile	~/.ssh/key/kfa-bastionhost.pem
+  ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --region ap-northeast-1"
+
+Host gitlab.com
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/key/id_ed25519
+
+Host i-* bastion-*
+  User ec2-user
+  ProxyCommand bash -c 'aws ec2-instance-connect send-ssh-public-key --instance-id %h --instance-os-user ec2-user --ssh-public-key file://~/.ssh/key/id_rsa.pub && aws ec2-instance-connect open-tunnel --instance-id %h'
+  
+Host bastion-gc-ai-module
+  Hostname i-021e0838b8947b7a4
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/key/id_rsa
+  IdentitiesOnly yes
+
+Host weintek-bastion
+    HostName 34.239.137.19
+    User ubuntu
+    IdentityFile ~/.ssh/key/weintek_bastion_key
+
+Host weintek-prod
+    HostName 10.0.1.173
+    User ubuntu
+    IdentityFile ~/.ssh/key/weintek_app_key
+    ProxyJump weintek-bastion
+
+Host weintek-stage-bastion
+    HostName 98.94.147.66
+    User ubuntu
+    IdentityFile ~/.ssh/key/weintek_stage_bastion_key
+
+Host weintek-stage
+    HostName 10.0.1.71
+    User ubuntu
+    IdentityFile ~/.ssh/key/weintek_stage_app_key
+    ProxyJump weintek-stage-bastion
