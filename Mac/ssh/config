@@ -83,12 +83,6 @@ Host funkiemonkie
     User admin
     IdentityFile ~/.ssh/key/kkfarm-2017.pem
 
-Host kkbox-rdc-bastion-host
-  HostName i-02748057251607112
-  User ubuntu
-  Identityfile	~/.ssh/key/id_rsa_kfa
-  ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --region us-west-2"
-
 Host kfa-bastion-host
   HostName i-05b7058f53e1e8ec5
   User ubuntu
@@ -99,10 +93,6 @@ Host gitlab.com
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/key/id_ed25519
 
-Host i-* bastion-*
-  User ec2-user
-  ProxyCommand bash -c 'aws ec2-instance-connect send-ssh-public-key --instance-id %h --instance-os-user ec2-user --ssh-public-key file://~/.ssh/key/id_rsa.pub && aws ec2-instance-connect open-tunnel --instance-id %h'
-  
 Host bastion-gc-ai-module
   Hostname i-021e0838b8947b7a4
 
