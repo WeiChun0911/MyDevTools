@@ -89,10 +89,6 @@ Host kfa-bastion-host
   Identityfile	~/.ssh/key/kfa-bastionhost.pem
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --region ap-northeast-1"
 
-Host gitlab.com
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/key/id_ed25519
-
 Host bastion-gc-ai-module
   Hostname i-021e0838b8947b7a4
 
