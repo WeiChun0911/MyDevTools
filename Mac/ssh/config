@@ -95,7 +95,7 @@ Host bastion-gc-ai-module
 Host github.com
   HostName github.com
   User git
-  IdentityFile ~/.ssh/key/id_rsa
+  IdentityFile ~/.ssh/id_rsa
   IdentitiesOnly yes
 
 Host weintek-bastion

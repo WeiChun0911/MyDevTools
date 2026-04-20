@@ -1,10 +1,17 @@
-### --- Powerlevel10k Instant Prompt (需放在最最最上面) ---
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# # ---- Disable p10k for kiro ----
+# if [[ "${TERM_PROGRAM:-}" == "kiro" ]]; then
+#   export DISABLE_P10K=1
+# fi
+
+# ## --- Powerlevel10k Instant Prompt (需放在最最最上面) ---
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # ### --- Source prompt 設定（放在 Instant Prompt 後）---
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# if [[ -z "${DISABLE_P10K:-}" ]]; then
+#   [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# fi
 
 source ~/.myzsh/init.zsh
 source ~/.myzsh/bindkey.zsh

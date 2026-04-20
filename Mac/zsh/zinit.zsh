@@ -46,8 +46,8 @@ zinit snippet OMZ::lib/theme-and-appearance.zsh
 # zinit ice lucid wait=1
 # zinit light agkozak/zsh-z
 
-zinit ice depth=1  # ❌ 不要加 lucid 或 wait
-zinit light romkatv/powerlevel10k
+# zinit ice depth=1  # ❌ 不要加 lucid 或 wait
+# zinit light romkatv/powerlevel10k
 
 # # 加入 zsh-defer：未來可加速 pyenv / fnm 等 eval
 # zinit light romkatv/zsh-defer
